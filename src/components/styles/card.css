@@ -1,0 +1,39 @@
+.card {
+  padding-top: 8px;
+  background-color: gray;
+}
+.add-container {
+  width: 500px;
+}
+body {
+  padding: 10px;
+}
+.row {
+  background-color: black;
+
+  max-width: 75%;
+  min-width: 65%;
+  margin: auto;
+  padding: 20px;
+  border-radius: 20px;
+  position: relative;
+}
+.card-img-top {
+  position: relative;
+}
+.card-img-top:hover + .delBtn {
+  visibility: visible;
+}
+.delBtn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 20px;
+  display: flex;
+  justify-content: center;
+  border: none;
+  visibility: hidden;
+}
+.delBtn:hover {
+  visibility: visible;
+}
