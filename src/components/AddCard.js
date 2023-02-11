@@ -7,7 +7,7 @@ class AddCard extends Component {
     super(props);
     this.state = {
       id: "",
-      img: "",
+      img: File,
       name: "",
       phone: "",
       email: "",
@@ -28,9 +28,21 @@ class AddCard extends Component {
     });
   }
   NewImg(evant) {
-    this.setState({
-      img: evant.target.value,
-    });
+    var reader = new FileReader();
+    reader.addEventListener(
+      "load",
+      () => {
+        // convert image file to base64 string
+        this.setState({
+          img: reader.result,
+        });
+      },
+      false
+    );
+
+    if (evant.target.files[0]) {
+      reader.readAsDataURL(evant.target.files[0]);
+    }
   }
   NewName(evant) {
     this.setState({
@@ -70,6 +82,7 @@ class AddCard extends Component {
   }
 
   render() {
+    console.log(this.state.img);
     return (
       <div className="container add-container">
         <h2>Add a person</h2>
@@ -87,10 +100,10 @@ class AddCard extends Component {
         <div className="input-group mb-3">
           <span className="input-group-text">Image</span>
           <input
-            type="text"
+            type="file"
+            accept="image/jpeg, image/png image/jpg "
             className="form-control"
             placeholder="Image"
-            value={this.state.img}
             onChange={this.NewImg}
           />
         </div>

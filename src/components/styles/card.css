@@ -5,14 +5,16 @@
 .add-container {
   width: 500px;
 }
+.card-img-top {
+  height: 45%;
+}
 body {
   padding: 10px;
 }
 .row {
   background-color: black;
 
-  max-width: 75%;
-  min-width: 65%;
+  width: 90%;
   margin: auto;
   padding: 20px;
   border-radius: 20px;
@@ -33,7 +35,16 @@ body {
   justify-content: center;
   border: none;
   visibility: hidden;
+  background-color: transparent;
+  color: white;
 }
 .delBtn:hover {
   visibility: visible;
+}
+.AddLink {
+  color: white;
+}
+
+.AddLinkDiv {
+  align-self: center;
 }

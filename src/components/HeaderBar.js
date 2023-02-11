@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
+import HomeIcon from "@mui/icons-material/Home";
 const HeaderBar = () => {
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -8,8 +8,9 @@ const HeaderBar = () => {
         <a className="navbar-brand" href="#/">
           Welcome React
         </a>
-        <Link to="/">Home</Link>
-        <Link to="/Add">Add Card</Link>
+        <Link to="/">
+          <HomeIcon fontSize="large" />
+        </Link>
 
         <button
           className="navbar-toggler"

@@ -1,6 +1,10 @@
 import React, { Component } from "react";
 import { cardsArray } from "./CardInfo";
+import DeleteIcon from "@mui/icons-material/Delete";
+import InfoIcon from "@mui/icons-material/Info";
+import { Link } from "react-router-dom";
 
+var cardDetails;
 class Card extends Component {
   constructor(props) {
     super();
@@ -9,7 +13,9 @@ class Card extends Component {
     };
     this.DeleteCard = this.DeleteCard.bind(this);
     this.ShowModal = this.ShowModal.bind(this);
+    this.showDetails = this.showDetails.bind(this);
   }
+
   DeleteCard() {
     this.setState({
       id: this.props.card.id,
@@ -36,6 +42,18 @@ class Card extends Component {
       e.style.display = "none";
     });
   }
+  showDetails() {
+    cardDetails = {
+      id: this.props.card.id,
+      img: this.props.card.img,
+      name: this.props.card.name,
+      job: this.props.card.job,
+      email: this.props.card.email,
+      phone: this.props.card.phone,
+    };
+
+    console.log(cardDetails);
+  }
 
   render() {
     return (
@@ -50,7 +68,7 @@ class Card extends Component {
         />
 
         <button onClick={this.ShowModal} className="delBtn">
-          X
+          <DeleteIcon />
         </button>
         <div className="modal" id={`modal${this.props.card.id}`} tabIndex="-1">
           <div className="modal-dialog">
@@ -95,9 +113,17 @@ class Card extends Component {
           <p className="card-text">{this.props.card.phone}</p>
           <p className="card-text">{this.props.card.email}</p>
         </div>
+        <Link
+          to="/details"
+          id={this.props.card.id}
+          className="details"
+          onClick={this.showDetails}
+        >
+          <InfoIcon fontSize="large" />
+        </Link>
       </div>
     );
   }
 }
-
+export { cardDetails };
 export default Card;

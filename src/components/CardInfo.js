@@ -26,5 +26,3 @@ if (cards2 !== null) {
 }
 
 export { cardsArray };
-
-export default CardInfo;
